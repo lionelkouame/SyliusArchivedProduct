@@ -11,12 +11,14 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class ProductTypeExtension extends AbstractTypeExtension
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): FormBuilderInterface
     {
         $builder->add('isArchived', CheckboxType::class, [
             'label' => 'sylius.form.product.is_archived',
             'required' => false,
         ]);
+
+        return $builder;
     }
 
     public static function getExtendedTypes(): iterable
