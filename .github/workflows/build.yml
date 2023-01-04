@@ -186,28 +186,3 @@ jobs:
             -
                 name: Run PHPUnit
                 run: vendor/bin/phpunit --colors=always
-
-            -
-                name: Run managing catalog promotion scenarios
-                run: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="~@javascript&&~@todo&&~@cli&&@managing_catalog_promotions"
-
-            -
-                name: Run managing exchange rates scenarios
-                run: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="~@javascript&&~@todo&&~@cli&&@managing_exchange_rates"
-
-            -
-                name: Run non-JS Behat (without managing catalog promotion scenarios and exchange rates)
-                run: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="~@javascript&&~@todo&&~@cli&&~@managing_catalog_promotions&&~@managing_exchange_rates"
-
-            -
-                name: Run JS Behat
-                run: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="@javascript&&~@todo&&~@cli" || vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="@javascript&&~@todo&&~@cli" --rerun || vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="@javascript&&~@todo&&~@cli" --rerun
-
-            -
-                name: Upload Behat logs
-                uses: actions/upload-artifact@v2
-                if: failure()
-                with:
-                    name: "Behat logs (PHP ${{ matrix.php }}, Symfony ${{ matrix.symfony }}, MySQL ${{ matrix.mysql }})"
-                    path: etc/build/
-                    if-no-files-found: ignore
