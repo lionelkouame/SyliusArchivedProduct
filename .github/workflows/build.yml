@@ -153,7 +153,7 @@ jobs:
 
             -   
                 name: Update force database
-                run: bin/console doctrine:schema:upadate --force
+                run: bin/console doctrine:schema:update --force
             -
                 name: Load fixtures
                 run: bin/console sylius:fixtures:load -n
