@@ -14,8 +14,24 @@ use Sylius\Component\Product\Model\ProductTranslationInterface;
  */
 class Product extends BaseProduct
 {
+    /** @ORM\Column(type="boolean", nullable=true) */
+    protected bool $isArchived;
+
     protected function createTranslation(): ProductTranslationInterface
     {
         return new ProductTranslation();
+    }
+
+    /**
+     * @return bool
+     */
+    public function isArchived(): ?bool
+    {
+        return $this->isArchived;
+    }
+
+    public function setIsArchived(bool $isArchived): void
+    {
+        $this->isArchived = $isArchived;
     }
 }
