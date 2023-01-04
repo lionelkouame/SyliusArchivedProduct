@@ -1,0 +1,22 @@
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:5.7 # Sylius is fully working on mysql 8.0 version
+    platform: linux/amd64
+    environment:
+      - MYSQL_ROOT_PASSWORD=sylius
+      - MYSQL_DATABASE=sylius
+      - MYSQL_USER=odelia
+      - MYSQL_PASSWORD=sylius
+    volumes:
+      - mysql-data:/var/lib/mysql:rw
+      # you may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
+      # - ./docker/mysql/data:/var/lib/mysql:rw,delegated
+    ports:
+      - "${MYSQL_PORT:-3306}:3306"
+    cap_add:
+      - SYS_NICE # prevent "mbind: Operation not permitted" errors
+
+volumes:
+  mysql-data:
+  public-media:
