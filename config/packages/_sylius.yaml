@@ -252,3 +252,10 @@ sylius_theme:
             scan_depth: 1
             directories:
                 - "%kernel.project_dir%/themes"
+# config/packages/_sylius.yaml
+sylius_grid:
+    grids:
+        sylius_admin_product:
+            fields:
+                code:
+                    enabled: false
