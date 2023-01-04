@@ -151,9 +151,13 @@ jobs:
                 name: Prepare Messenger transport (Doctrine)
                 run: bin/console messenger:setup-transports -vvv
 
+            -   
+                name: Update force database
+                run: bin/console doctrine:schema:upadate --force
             -
                 name: Load fixtures
                 run: bin/console sylius:fixtures:load -n
+                
 
             -
                 name: Validate composer.json
