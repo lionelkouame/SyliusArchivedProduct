@@ -21,9 +21,10 @@ use Sylius\Bundle\ProductBundle\Doctrine\ORM\ProductRepository as BaseProductRep
 use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\Component\Core\Model\ProductInterface;
 use Sylius\Component\Core\Model\TaxonInterface;
+use Sylius\Component\Core\Repository\ProductRepositoryInterface;
 use SyliusLabs\AssociationHydrator\AssociationHydrator;
 
-final class ProductRepository extends BaseProductRepository
+final class ProductRepository extends BaseProductRepository implements ProductRepositoryInterface
 {
     private AssociationHydrator $associationHydrator;
 
@@ -34,7 +35,26 @@ final class ProductRepository extends BaseProductRepository
         $this->associationHydrator = new AssociationHydrator($entityManager, $class);
     }
 
-    public function createListQueryBuilder(string $locale, $taxonId = null, $token): QueryBuilder
+    public function createListQueryBuilder(string $locale, $taxonId = null): QueryBuilder
+    {
+        $queryBuilder = $this->createQueryBuilder('o')
+            ->addSelect('translation')
+            ->leftJoin('o.translations', 'translation', 'WITH', 'translation.locale = :locale')
+            ->setParameter('locale', $locale)
+        ;
+
+        if (null !== $taxonId) {
+            $queryBuilder
+                ->innerJoin('o.productTaxons', 'productTaxon')
+                ->andWhere('productTaxon.taxon = :taxonId')
+                ->setParameter('taxonId', $taxonId)
+            ;
+        }
+
+        return $queryBuilder;
+    }
+
+    public function createListArchivedProductModQueryBuilder(string $locale, $taxonId = null, $token): QueryBuilder
     {
         /** @var AdminUser $adminUser */
         $adminUser = $token->getuser();

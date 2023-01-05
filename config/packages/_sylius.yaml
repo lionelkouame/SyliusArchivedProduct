@@ -262,5 +262,5 @@ sylius_grid:
                 options:
                     class: "%sylius.model.product.class%"
                     repository:
-                        method: createListQueryBuilder
+                        method: createListArchivedProductModQueryBuilder
                         arguments: [ "expr:service('sylius.context.locale').getLocaleCode()", $taxonId, "expr:service('security.token_storage').getToken()" ]
