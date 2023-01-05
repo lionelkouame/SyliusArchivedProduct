@@ -133,6 +133,7 @@ sylius_product:
         product:
             classes:
                 model: App\Entity\Product\Product
+                repository: App\Repository\Product\ProductRepository
             translation:
                 classes:
                     model: App\Entity\Product\ProductTranslation
@@ -252,3 +253,14 @@ sylius_theme:
             scan_depth: 1
             directories:
                 - "%kernel.project_dir%/themes"
+# config/packages/_sylius.yaml
+sylius_grid:
+    grids:
+        sylius_admin_product:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: "%sylius.model.product.class%"
+                    repository:
+                        method: createListQueryBuilder
+                        arguments: [ "expr:service('sylius.context.locale').getLocaleCode()", $taxonId, "expr:service('security.token_storage').getToken()" ]

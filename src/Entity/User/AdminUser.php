@@ -13,4 +13,16 @@ use Sylius\Component\Core\Model\AdminUser as BaseAdminUser;
  */
 class AdminUser extends BaseAdminUser
 {
+    /** @ORM\Column(type="boolean", nullable=true) */
+    protected $isArchivedMode = false;
+
+    public function isArchivedMode(): bool
+    {
+        return $this->isArchivedMode;
+    }
+
+    public function setIsArchivedMode(bool $isArchivedMode): void
+    {
+        $this->isArchivedMode = $isArchivedMode;
+    }
 }

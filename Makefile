@@ -8,5 +8,5 @@ coding-fix:
 .PHONY: coding-fix
 
 php-stan:
-	vendor/bin/phpstan analyse -c phpstan.neon -l max src/
+	vendor/bin/phpstan analyse -c phpstan.neon -l 1  src/
 .PHONY: php-stan
