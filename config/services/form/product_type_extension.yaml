@@ -3,3 +3,8 @@ services:
         class: App\Form\Extension\ProductTypeExtension
         tags:
             - { name: form.type_extension, extended_type: Sylius\Bundle\ProductBundle\Form\Type\ProductType }
+    
+    app.form.extension.type.admin_user:
+        class: App\Form\Extension\AdminUserTypeExtension
+        tags:
+            - { name: form.type_extension, extended_type: Sylius\Bundle\CoreBundle\Form\Type\User\AdminUserType }
