@@ -28,7 +28,11 @@ class MassActionManager
 
         /** @var Product $product */
         foreach ($products as $product) {
-            $product->setIsArchived(true);
+            if($product->isArchived()) {
+                $product->setIsArchived(false);
+            } else {
+                $product->setIsArchived(true);
+            }
         }
 
         $this->entityManager->flush();
