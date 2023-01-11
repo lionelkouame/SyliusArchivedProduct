@@ -1,0 +1,8 @@
+{% set url= "app_archived_product" %}
+
+<form action="{{ url }}" method="post">
+    <button class="ui icon button" type="button" archived-mass-action data-url="{{ url('app_archived_product') }}" >
+        <input type="hidden">
+        <i class="icon  list"></i>  {{ "sylius.ui.archived" |trans }}
+    </button>
+</form>

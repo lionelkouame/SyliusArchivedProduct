@@ -50,12 +50,14 @@ Encore.reset();
 Encore
     .setOutputPath('public/build/app/shop')
     .setPublicPath('/build/app/shop')
-    .addEntry('app-shop-entry', './assets/shop/entry.js')
+    .enableTypeScriptLoader()
+    .addEntry('app-shop-entry', './assets/shop/entry.ts')
     .disableSingleRuntimeChunk()
     .cleanupOutputBeforeBuild()
     .enableSourceMaps(!Encore.isProduction())
     .enableVersioning(Encore.isProduction())
-    .enableSassLoader();
+    .enableSassLoader()
+    .enableForkedTypeScriptTypesChecking();
 
 const appShopConfig = Encore.getWebpackConfig();
 
@@ -71,11 +73,13 @@ Encore.reset();
 Encore
     .setOutputPath('public/build/app/admin')
     .setPublicPath('/build/app/admin')
-    .addEntry('app-admin-entry', './assets/admin/entry.js')
+    .addEntry('app-admin-entry', './assets/admin/entry.ts')
+    .enableTypeScriptLoader()
     .disableSingleRuntimeChunk()
     .cleanupOutputBeforeBuild()
     .enableSourceMaps(!Encore.isProduction())
     .enableVersioning(Encore.isProduction())
+    .enableForkedTypeScriptTypesChecking()
     .enableSassLoader();
 
 const appAdminConfig = Encore.getWebpackConfig();

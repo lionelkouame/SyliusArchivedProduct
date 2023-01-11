@@ -1,2 +1,8 @@
 sylius_paypal_webhook:
     resource: "@SyliusPayPalPlugin/Resources/config/webhook_routing.yaml"
+
+app_archived_product:
+    path: /archived-products
+    methods: [GET, POST]
+    defaults:
+        _controller: app.controller.archived_product::index

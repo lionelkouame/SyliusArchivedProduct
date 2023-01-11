@@ -255,6 +255,9 @@ sylius_theme:
                 - "%kernel.project_dir%/themes"
 # config/packages/_sylius.yaml
 sylius_grid:
+    templates:
+        bulk_action: 
+            archived: 'grids/bulk/archived.html.twig'
     grids:
         sylius_admin_product:
             driver:
@@ -264,3 +267,9 @@ sylius_grid:
                     repository:
                         method: createListQueryBuilder
                         arguments: [ "expr:service('sylius.context.locale').getLocaleCode()", $taxonId, "expr:service('security.token_storage').getToken()" ]
+            actions:
+                bulk:
+                    archive:
+                        type: archived
+                        label: sylius.ui.archive
+                        icon: list

@@ -33,3 +33,16 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+        
+    App\Grid\AdminProductsGridListener:
+        tags:
+            - { name: kernel.event_listener, event: sylius.grid.admin_product, method: editFields }
+                
+    app.controller.archived_product:
+        class: App\Controller\ArchivedProductController
+        autowire: true
+        tags: [ 'controller.service_arguments' ]
+
+    App\MassAction\MassActionManager:
+        arguments:
+            - "@doctrine.orm.entity_manager"

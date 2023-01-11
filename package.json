@@ -1,10 +1,13 @@
 {
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
+    "animate.css": "^4.1.1",
+    "axios": "^1.2.2",
     "chart.js": "^3.7.1",
     "jquery": "^3.5.0",
     "jquery.dirtyforms": "^2.0.0",
     "lightbox2": "^2.9.0",
+    "notyf": "^3.10.0",
     "semantic-ui-css": "^2.2.0",
     "slick-carousel": "^1.8.1"
   },
@@ -28,6 +31,7 @@
     "eslint-import-resolver-babel-module": "^5.3.1",
     "eslint-plugin-import": "^2.26.0",
     "fast-async": "^6.3.8",
+    "fork-ts-checker-webpack-plugin": "^7.0.0",
     "gulp": "^4.0.2",
     "gulp-chug": "^0.5.1",
     "gulp-concat": "^2.6.1",
@@ -43,6 +47,8 @@
     "rollup-plugin-terser": "^7.0.2",
     "sass": "^1.54.8",
     "sass-loader": "^13.0.0",
+    "ts-loader": "^9.0.0",
+    "typescript": "^4.9.4",
     "upath": "^2.0.1",
     "yargs": "^17.5.1"
   },
