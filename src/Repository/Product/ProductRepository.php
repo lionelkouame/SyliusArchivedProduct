@@ -100,6 +100,7 @@ final class ProductRepository extends BaseProductRepository
         $queryBuilder
             ->andWhere(':channel MEMBER OF o.channels')
             ->andWhere('o.enabled = :enabled')
+            ->andWhere('o.isArchived = false')
             ->setParameter('locale', $locale)
             ->setParameter('channel', $channel)
             ->setParameter('enabled', true)
@@ -142,6 +143,7 @@ final class ProductRepository extends BaseProductRepository
             ->innerJoin('o.translations', 'translation', 'WITH', 'translation.locale = :locale')
             ->andWhere(':channel MEMBER OF o.channels')
             ->andWhere('o.enabled = :enabled')
+            ->andWhere('o.isArchived = false')
             ->addOrderBy('o.createdAt', 'DESC')
             ->setParameter('channel', $channel)
             ->setParameter('locale', $locale)
@@ -160,6 +162,7 @@ final class ProductRepository extends BaseProductRepository
             ->andWhere('translation.slug = :slug')
             ->andWhere(':channel MEMBER OF o.channels')
             ->andWhere('o.enabled = :enabled')
+            ->andWhere('o.isArchived = false')
             ->setParameter('channel', $channel)
             ->setParameter('locale', $locale)
             ->setParameter('slug', $slug)
