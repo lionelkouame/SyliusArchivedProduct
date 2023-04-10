@@ -10,6 +10,7 @@ use Sylius\Component\Product\Model\ProductVariantTranslationInterface;
 
 /**
  * @ORM\Entity
+ *
  * @ORM\Table(name="sylius_product_variant")
  */
 class ProductVariant extends BaseProductVariant

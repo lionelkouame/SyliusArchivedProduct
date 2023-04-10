@@ -9,6 +9,7 @@ use Sylius\Component\Taxation\Model\TaxCategory as BaseTaxCategory;
 
 /**
  * @ORM\Entity
+ *
  * @ORM\Table(name="sylius_tax_category")
  */
 class TaxCategory extends BaseTaxCategory

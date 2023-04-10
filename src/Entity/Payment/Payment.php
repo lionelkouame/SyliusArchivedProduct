@@ -9,6 +9,7 @@ use Sylius\Component\Core\Model\Payment as BasePayment;
 
 /**
  * @ORM\Entity
+ *
  * @ORM\Table(name="sylius_payment")
  */
 class Payment extends BasePayment

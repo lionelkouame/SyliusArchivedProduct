@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace App\Repository\Product;
 
-use App\Entity\User\AdminUser;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\QueryBuilder;
@@ -33,7 +32,6 @@ final class ProductRepository extends BaseProductRepository
 
         $this->associationHydrator = new AssociationHydrator($entityManager, $class);
     }
-
 
     public function createShopListQueryBuilder(
         ChannelInterface $channel,
