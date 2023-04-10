@@ -1,21 +1,19 @@
 {
-    "type": "project",
+    "name": "lionelkouame/sylius-archived-product",
+    "type": "sylius-plugin",
+    "description": "This plugin allows you to archive products.",
     "keywords": [
-        "symfony",
         "sylius",
-        "distribution",
-        "ecommerce",
-        "cart",
-        "shopping"
+        "sylius-plugin"
     ],
-    "homepage": "https://sylius.com",
-    "license": "proprietary",
+    "homepage": "https://github.com/lionelkouame/SyliusArchivedProduct",
+    "license": "MIT",
     "authors": [
         {
-            "name": "Paweł Jędrzejewski"
+            "name": "Lionel KOUAME"
         },
         {
-            "name": "Sylius project"
+            "name": "Sylius Archieved Product"
         },
         {
             "name": "Community contributions"
