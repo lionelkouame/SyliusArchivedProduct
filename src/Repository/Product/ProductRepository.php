@@ -17,7 +17,7 @@ use App\Entity\User\AdminUser;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\QueryBuilder;
-use Sylius\Bundle\ProductBundle\Doctrine\ORM\ProductRepository as BaseProductRepository;
+use Sylius\Bundle\CoreBundle\Doctrine\ORM\ProductRepository as  BaseProductRepository;
 use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\Component\Core\Model\ProductInterface;
 use Sylius\Component\Core\Model\TaxonInterface;
@@ -34,29 +34,6 @@ final class ProductRepository extends BaseProductRepository
         $this->associationHydrator = new AssociationHydrator($entityManager, $class);
     }
 
-    public function createListQueryBuilder(string $locale, $taxonId = null, $token): QueryBuilder
-    {
-        /** @var AdminUser $adminUser */
-        $adminUser = $token->getuser();
-
-        $queryBuilder = $this->createQueryBuilder('o')
-            ->addSelect('translation')
-            ->leftJoin('o.translations', 'translation', 'WITH', 'translation.locale = :locale')
-            ->where('o.isArchived =:isArchived')
-            ->setParameter('locale', $locale)
-            ->setParameter('isArchived', $adminUser->isArchivedMode())
-        ;
-
-        if (null !== $taxonId) {
-            $queryBuilder
-                ->innerJoin('o.productTaxons', 'productTaxon')
-                ->andWhere('productTaxon.taxon = :taxonId')
-                ->setParameter('taxonId', $taxonId)
-            ;
-        }
-
-        return $queryBuilder;
-    }
 
     public function createShopListQueryBuilder(
         ChannelInterface $channel,

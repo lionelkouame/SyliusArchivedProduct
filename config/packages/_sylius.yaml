@@ -264,9 +264,7 @@ sylius_grid:
                 name: doctrine/orm
                 options:
                     class: "%sylius.model.product.class%"
-                    repository:
-                        method: createListQueryBuilder
-                        arguments: [ "expr:service('sylius.context.locale').getLocaleCode()", $taxonId, "expr:service('security.token_storage').getToken()" ]
+                    repository: App\Repository\Product\ProductRepository
             actions:
                 bulk:
                     archive:
