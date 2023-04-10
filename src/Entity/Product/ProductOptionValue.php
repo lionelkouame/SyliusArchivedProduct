@@ -10,6 +10,7 @@ use Sylius\Component\Product\Model\ProductOptionValueTranslationInterface;
 
 /**
  * @ORM\Entity
+ *
  * @ORM\Table(name="sylius_product_option_value")
  */
 class ProductOptionValue extends BaseProductOptionValue

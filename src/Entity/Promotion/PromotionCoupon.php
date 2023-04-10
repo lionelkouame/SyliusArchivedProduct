@@ -9,6 +9,7 @@ use Sylius\Component\Core\Model\PromotionCoupon as BasePromotionCoupon;
 
 /**
  * @ORM\Entity
+ *
  * @ORM\Table(name="sylius_promotion_coupon")
  */
 class PromotionCoupon extends BasePromotionCoupon

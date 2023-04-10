@@ -9,6 +9,7 @@ use Sylius\Component\Core\Model\ShopUser as BaseShopUser;
 
 /**
  * @ORM\Entity
+ *
  * @ORM\Table(name="sylius_shop_user")
  */
 class ShopUser extends BaseShopUser

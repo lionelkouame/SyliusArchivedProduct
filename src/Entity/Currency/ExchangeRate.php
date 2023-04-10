@@ -9,6 +9,7 @@ use Sylius\Component\Currency\Model\ExchangeRate as BaseExchangeRate;
 
 /**
  * @ORM\Entity
+ *
  * @ORM\Table(name="sylius_exchange_rate")
  */
 class ExchangeRate extends BaseExchangeRate

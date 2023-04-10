@@ -9,6 +9,7 @@ use Sylius\Component\Promotion\Model\CatalogPromotionAction as BaseCatalogPromot
 
 /**
  * @ORM\Entity
+ *
  * @ORM\Table(name="sylius_catalog_promotion_action")
  */
 class CatalogPromotionAction extends BaseCatalogPromotionAction

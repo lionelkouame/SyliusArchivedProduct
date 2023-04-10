@@ -9,6 +9,7 @@ use Sylius\Bundle\PayumBundle\Model\GatewayConfig as BaseGatewayConfig;
 
 /**
  * @ORM\Entity
+ *
  * @ORM\Table(name="sylius_gateway_config")
  */
 class GatewayConfig extends BaseGatewayConfig
